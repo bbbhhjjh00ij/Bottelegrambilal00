@@ -3,8 +3,8 @@ import sys
 import logging
 import asyncio
 from fastapi import FastAPI
-from telegram import Update, filters
-from telegram.ext import Application, CommandHandler, MessageHandler, CallbackContext
+from telegram import Update
+from telegram.ext import Application, CommandHandler, MessageHandler, CallbackContext, filters
 import re
 
 # تثبيت المكتبات المطلوبة إذا لم تكن موجودة
