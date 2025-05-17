@@ -3,8 +3,8 @@ import sys
 import logging
 import asyncio
 from fastapi import FastAPI
-from telegram import Update
-from telegram.ext import Application, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram import Update, filters
+from telegram.ext import Application, CommandHandler, MessageHandler, CallbackContext
 import re
 
 # تثبيت المكتبات المطلوبة إذا لم تكن موجودة
@@ -57,7 +57,7 @@ async def main():
     application.add_handler(CommandHandler("start", start))
 
     # التعامل مع الرسائل
-    application.add_handler(MessageHandler(Filters.text & ~Filters.command, message_handler))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_handler))
 
     # تشغيل البوت
     await application.run_polling()
